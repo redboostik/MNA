@@ -50,7 +50,7 @@ C = np.matrix([[0.2, 0, 0.2, 0, 0],[0, 0.2, 0, 0.2, 0],[0.2, 0, 0.2, 0, 0.2],[0,
 D = np.matrix([[2.33, 0.81, 0.67, 0.92, -0.53],[-0.53, 2.33, 0.81, 0.67, 0.92],[0.92, -0.53, 2.33, 0.81, 0.67],[0.67, 0.92, -0.53, 2.33, 0.81],[0.81, 0.67, 0.92, -0.53, 2.33]])
 A =  9 * C + D
 X = [0, 0, 0, 0, 0]
-
+n = 5
 '''
 A = np.matrix([
     [1.0, 1.0],
@@ -58,6 +58,7 @@ A = np.matrix([
 ])
 b = [2, 4]
 X = [0, 0]
+n = 5
 '''
 A1 = A.copy()
 A2 = A.copy()
@@ -68,13 +69,13 @@ b3 = b.copy()
 X1 = X.copy()
 X2 = X.copy()
 X3 = X.copy()
-G_method_build_mat(A1, 5, b1)
-G_method_solve(A1, b1, 5, X1)
+G_method_build_mat(A1, n, b1)
+G_method_solve(A1, b1, n, X1)
 print(X1)
 G_method_max_build_mat(A2, 5, b2)
-G_method_solve(A2, b2, 5, X2)
+G_method_solve(A2, b2, n, X2)
 print(X2)
 G_method_full_max_build_mat(A3, 5, b3)
-G_method_solve(A3, b3, 5, X3)
+G_method_solve(A3, b3, n, X3)
 print(X3)
 
