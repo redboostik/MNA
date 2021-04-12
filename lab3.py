@@ -1,6 +1,4 @@
 import sympy as sp
-import numpy as np
-from sympy.codegen.ast import While
 
 
 def Shturm(expr, x, L, R):
