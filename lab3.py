@@ -81,7 +81,6 @@ def chord_method(expr, x, L, R, eps):
 def tangent_method(expr, diff,x,X, eps):
     steps = 0
     while(abs(get_func_res(expr,x,X))> eps):
-        print(X, get_func_res(expr,x,X) / get_func_res(diff,x,X),get_func_res(expr, x, X))
         steps += 1
         X -= get_func_res(expr,x,X) / get_func_res(diff,x,X)
     return X, steps
@@ -89,8 +88,8 @@ def tangent_method(expr, diff,x,X, eps):
 
 
 x = sp.Symbol('x')
-expr = 2.65804 * x**3 -28.0640 * x**2 + 21.9032 * x
-eps = 0.000001
+expr = x**3 +  2.65804 * x**2 -28.0640 * x + 21.9032 
+eps = 0.0001
 L_border = -10
 R_border = 10
 n, k = Shturm(expr, x, L_border, R_border)
@@ -99,7 +98,6 @@ print("Корней: ",n)
 
 for i in range(n):
     t = R_border - L_border
-    print(L_border, R_border)
     new_L = L_border
     while( t > eps):
         la, no = Shturm(expr, x, new_L + t, R_border )
@@ -122,6 +120,6 @@ print("ответ: ",chord_res)
 print("шагов: ",chord_steps)
 
 tangent_res, tangent_steps = tangent_method(expr,sp.diff(expr, x), x,range_corner[n - 1][0], eps)
-print("метод косательных: ")
+print("метод касательных: ")
 print("ответ: ", tangent_res)
 print("шагов: ", tangent_steps)
